@@ -1,9 +1,10 @@
 from flask import jsonify
+from ..models.MyInfo import MyInfo
 # from app.models.user import User  # Asumiendo que tienes modelos separados
 
 def get_basic_info():
-    afs = 2
-    return afs
+    my_info = MyInfo.query.all()
+    return jsonify(my_info)
 
 
 def get_hobbies():

@@ -1,14 +1,8 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
+from .extensions import db, migrate
 from .routes.api import blueprint as api_blueprint
 from dotenv import load_dotenv
-
-#Registrar modelos
-# from .models import *
-
-db = SQLAlchemy()
-migrate = Migrate()
+from app.models import MyInfo, Interest, Project
 
 def create_app():
     app = Flask(__name__)
@@ -22,13 +16,7 @@ def create_app():
     # Registrar rutas
     app.register_blueprint(api_blueprint)
 
-    # Importar modelos.
-    from .models.Interest import Interest
-    from .models.MyInfo import MyInfo
-
-    
     with app.app_context():
-        # # Crear tablas si no existen (para SQL)
-        # db.create_all()
+        db.create_all()
         
         return app

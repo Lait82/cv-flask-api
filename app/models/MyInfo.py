@@ -1,4 +1,4 @@
-from app import db
+from app.extensions import db
 from sqlalchemy import String, Column, DateTime
 
 class MyInfo(db.Model):
