@@ -1,7 +1,7 @@
-from app.extensions import db
 from sqlalchemy import String, Column, DateTime
+from .BaseModel import BaseModel
 
-class MyInfo(db.Model):
+class MyInfo(BaseModel):
     __tablename__ = 'my_info'  # Nombre de la tabla en la base de datos
     
     firstname = Column(String(16))

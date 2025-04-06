@@ -1,15 +1,21 @@
 from flask import jsonify
+from ..utils import to_serializable
+
+# Models
 from ..models.MyInfo import MyInfo
-# from app.models.user import User  # Asumiendo que tienes modelos separados
+from ..models.Interest import Interest
+
 
 def get_basic_info():
     my_info = MyInfo.query.all()
-    return jsonify(my_info)
+    data = to_serializable(my_info)
+    return jsonify(data)
 
 
-def get_hobbies():
-    #...
-    return
+def get_interests():
+    interests = Interest.query.all()
+    data = to_serializable(interests)
+    return jsonify(data)
 
 def get_proyectos():
     # ...

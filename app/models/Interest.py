@@ -1,7 +1,8 @@
-from app.extensions import db
 from sqlalchemy import Column, Integer, String
+from .BaseModel import BaseModel
 
-class Interest(db.Model):
+
+class Interest(BaseModel):
     __tablename__ = 'interests'
     
     id = Column(Integer(), primary_key=True)

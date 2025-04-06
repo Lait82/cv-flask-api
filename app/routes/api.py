@@ -17,3 +17,8 @@ def get_users():
 def get_basic_info():
     return info_controller.get_basic_info()
 
+# Info
+@blueprint.route('/interests', methods=['GET'])
+def get_interests():
+    return info_controller.get_interests()
+
