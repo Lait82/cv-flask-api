@@ -22,23 +22,21 @@ def get_interests():
     return jsonify(data)
 
 def get_projects(interests):
+
+
     interest_ids = [
-        InterestsEnum[interest]
+        InterestsEnum[interest].value
         for interest in interests
         if interest in InterestsEnum.__members__
     ]
 
-    # projects = db.session.query(Interest).filter(
-    #     Interest.id.in_(interest_ids)
-    #     ).all() if len(interest_ids) else db.session.query(Project).all()
-    # projects = db.session.query(Project).all()
-
-    try:
-        projects = db.session.query(Project).all()
-    except Exception as e:
-        current_app.logger.setLevel(DEBUG)
-        current_app.logger.info("=============ERROR=============")
-        current_app.logger.info(e)
+    query = db.session.query(Project)
+    if interest_ids:
+        query = (query
+            .join(Project.interests)
+            .filter(Interest.id.in_(interest_ids)))
+    
+    projects = query.distinct().all()
 
     projects = to_serializable(projects)
     return jsonify(projects)
