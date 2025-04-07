@@ -1,4 +1,5 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, current_app
+from logging import DEBUG
 from app.controllers import contact_controller
 from app.controllers import info_controller
 
@@ -21,4 +22,22 @@ def get_basic_info():
 @blueprint.route('/interests', methods=['GET'])
 def get_interests():
     return info_controller.get_interests()
+
+# Info 
+@blueprint.route('/projects', methods=['GET'])
+def get_projects():
+    interests = request.args.getlist('interests')
+
+    return info_controller.get_projects(interests)
+
+    # current_app.logger.setLevel(DEBUG)
+    # current_app.logger.info(interests)
+
+    # if(type(interests_filter) != None):
+
+
+
+        
+
+
 
