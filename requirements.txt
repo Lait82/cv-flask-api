@@ -1,6 +1,7 @@
 flask
 flask-sqlalchemy
-flask-migrate  # Solo para MySQL
-pymysql       # Solo para MySQL
+flask-migrate
+pymysql
+flask-cors
 python-dotenv
 cryptography

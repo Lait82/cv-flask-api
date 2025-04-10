@@ -1,10 +1,10 @@
 from flask import current_app
 from logging import DEBUG
-from ..models import BaseModel
+from ..models import BaseModel as BaseModelPackage
 
 # PRIVATES
 def _is_model_instance(obj):
-    return BaseModel.BaseModel in obj.__class__.__mro__
+    return BaseModelPackage.BaseModel in obj.__class__.__mro__
 
 # PUBLICS
 def to_serializable(lst: list) -> list:

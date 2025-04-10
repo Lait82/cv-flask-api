@@ -1,5 +1,4 @@
-# from flask import jsonify
+from flask import jsonify
 
-def contact(data):
-    afs = 2
-    return afs
+def store_contact(data):
+    return jsonify(['test'])

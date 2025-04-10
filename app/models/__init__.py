@@ -1,6 +1,8 @@
 from .Interest import Interest
 from .MyInfo import MyInfo
 from .Project import Project
+from .Contact import Contact
+
 from .InterestProject import interest_project
 
 __all__ = [

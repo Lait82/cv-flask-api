@@ -1,4 +1,4 @@
-from sqlalchemy import String, Column, DateTime
+from sqlalchemy import String, Column, DateTime, Text
 from .BaseModel import BaseModel
 
 class MyInfo(BaseModel):
@@ -10,6 +10,8 @@ class MyInfo(BaseModel):
     linkedin_profile = Column(String(64))
     github_profile = Column(String(64))
     dob = Column(DateTime())
+    location = Column(String(32))
+    summary = Column(Text(1024))
 
 
     def __repr__(self):

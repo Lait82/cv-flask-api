@@ -8,6 +8,7 @@ class Project(BaseModel):
     id = Column(Integer(), primary_key=True)
     name = Column(String(64))
     description = Column(String(512), primary_key=True)
+    github_url = Column(String(128))
 
     interests = db.relationship(
         'Interest',
