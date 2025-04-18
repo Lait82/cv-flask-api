@@ -2,7 +2,7 @@
 FROM python:3.13
 
 # Establecer el directorio de trabajo
-WORKDIR /app
+WORKDIR /var/www/backend/flask_api
 
 # Copiar los archivos de requisitos primero para aprovechar el caché de Docker
 COPY requirements.txt .
@@ -17,7 +17,7 @@ COPY . .
 RUN chmod +x entrypoint.sh
 
 # Puerto que expone el contenedor
-EXPOSE 5000
+EXPOSE 2889
 
 # Comando para ejecutar la aplicación
 CMD ["./entrypoint.sh"]
