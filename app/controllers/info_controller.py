@@ -13,7 +13,9 @@ from ..models.Project import Project
 def get_basic_info():
     my_info = MyInfo.query.all()
     data = to_serializable(my_info)
-    return jsonify(data[0])
+    if len(data):
+        return jsonify(data[0])
+    return jsonify([])
 
 
 def get_interests():

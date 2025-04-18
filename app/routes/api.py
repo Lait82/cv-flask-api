@@ -3,7 +3,7 @@ from logging import DEBUG
 from app.controllers import contact_controller
 from app.controllers import info_controller
 
-blueprint = Blueprint('api', __name__, url_prefix='/api')
+blueprint = Blueprint('api', __name__)
 
 
 # Contact
