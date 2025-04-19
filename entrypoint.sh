@@ -5,4 +5,4 @@
 
 # Iniciar la aplicación Flask
 # exec flask run --host=0.0.0.0 --debug --port=2889
-gunicorn --bind 0.0.0.0:2889 --workers 3 --timeout 120 wsgi:flask_api_app
+gunicorn -w 2 --threads 4 --bind 0.0.0.0:2889  --timeout 120 wsgi:flask_api_app
