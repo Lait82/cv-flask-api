@@ -7,7 +7,7 @@ from app.models import MyInfo, Interest, Project
 
 def create_app():
     app = Flask(__name__)
-    CORS(app)
+    # CORS(app)
     load_dotenv()
     app.config.from_object('app.config.Config')
     
