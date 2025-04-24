@@ -9,6 +9,7 @@ class Project(BaseModel):
     name = Column(String(64))
     description = Column(String(512), primary_key=True)
     github_url = Column(String(128))
+    banner_img = Column(String(32))
 
     interests = db.relationship(
         'Interest',

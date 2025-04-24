@@ -12,6 +12,7 @@ class Interest(BaseModel):
     years_of_practice = Column(Integer())
     level_or_degree = Column(String(120))
     notes = Column(String(512))
+    img_logo = Column(String(32))
 
     projects = db.relationship(
         'Project',
