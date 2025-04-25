@@ -1,4 +1,4 @@
-from flask import Blueprint, request, current_app
+from flask import Blueprint, request, current_app, jsonify
 from logging import DEBUG
 from app.controllers import contact_controller
 from app.controllers import info_controller
@@ -15,21 +15,19 @@ def store_contact():
 
     # Generate valid payload
     valid_fields = [
-        "firstname",
-        "lastname",
+        "name",
         "email",
         "url",
+        "company",
         "contact_message"
     ]
     payload = {}
     for field in valid_fields:
         payload[field] = data.get(field)
     
-
-
     current_app.logger.info(payload)
 
-    return contact_controller.store_contact(data)
+    return contact_controller.store_contact(payload)
 
 
 # Info

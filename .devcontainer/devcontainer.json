@@ -1,0 +1,11 @@
+{
+    "name": "Flask Dev",
+    "dockerComposeFile": "../../../docker-compose.dev.yml",
+    "service": "api",
+    "workspaceFolder": "/var/www/backend/flask_api",
+    "customizations": {
+      "vscode": {
+        "extensions": ["ms-python.python"]
+      }
+    }
+  }
