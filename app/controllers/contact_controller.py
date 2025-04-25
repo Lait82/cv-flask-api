@@ -8,7 +8,7 @@ def store_contact(data: dict):
 
         db.session.add(contact_record)
         db.session.commit()
-        return "", 204
+        return ("", 204)
     except Exception as e:
         current_app.logger.error(
             {
@@ -16,4 +16,4 @@ def store_contact(data: dict):
                 "data":e
             }
         )
-        return jsonify(message="There was an error creating the contact info. Please contact me on linkedin."), 500
+        return (jsonify(message="There was an error creating the contact info. Please contact me on linkedin."), 500)
