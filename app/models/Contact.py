@@ -4,7 +4,7 @@ from .BaseModel import BaseModel
 class Contact(BaseModel):
     __tablename__ = 'contacts'
     
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(64))
     email = Column(String(64))
     url = Column(String(256))
