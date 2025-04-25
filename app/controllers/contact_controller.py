@@ -8,7 +8,7 @@ def store_contact(data: dict):
 
         db.session.add(contact_record)
         db.session.commit()
-        return ("", 204)
+        return ({}, 200)
     except Exception as e:
         current_app.logger.error(
             {
